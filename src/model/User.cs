@@ -20,6 +20,6 @@ namespace catedra1.src.model
         [RegularExpression(@"^(masculino|femenino|otro|prefiero no decirlo)$")]
         public string genero {get;set;} = string.Empty;
         [Required]
-        public DateTime fecha {get;set;}
+        public DateTime fechaNacimiento {get;set;}
     }
 }
