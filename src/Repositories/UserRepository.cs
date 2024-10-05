@@ -25,6 +25,12 @@ namespace catedra1.src.Repositories
             return await _aplicationDBcontext.users.ToListAsync();
         }
 
+        public async Task<bool> Pots(User user){
+            await _aplicationDBcontext.AddAsync(user);
+            await _aplicationDBcontext.SaveChangesAsync();
+            return true;
+        }
+
 
     }
 }

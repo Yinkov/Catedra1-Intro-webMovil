@@ -11,5 +11,8 @@ namespace catedra1.src.Interfaces
         Task<bool> ExtistsByRut(string rut);
 
         Task<List<User>> ListUser();
+
+        Task<bool> Pots(User user);
+
     }
 }
