@@ -10,7 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AplicationDBcontext>(opt => opt.UseSqlite("Data Source=catedra1.db"));
-
+builder.Services.AddControllers();
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -21,7 +21,7 @@ using (var scope = app.Services.CreateScope())
     await Seeder.Seed(context);
 }
 
-
+app.MapControllers();
 
 
 

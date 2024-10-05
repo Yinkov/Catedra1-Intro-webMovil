@@ -1,14 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
+using catedra1.src.Dtos;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace catedra1.src.Controller
 {
-    public class UserController
+    [Route("api/user")]
+    [ApiController]
+    public class UserController : ControllerBase
     {
-        
+        [HttpPost("")]
+
+        public IResult CreateUser(CreateUserDto createUserDto){
+            
+            
+        }
 
     }
 }
