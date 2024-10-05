@@ -9,13 +9,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<AplicationDBcontext>(opt => opt.UseSqlite("Data Source=database.db"));
+builder.Services.AddDbContext<AplicationDBcontext>(opt => opt.UseSqlite("Data Source=catedra1.db"));
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<AplicationDBcontext>();
+    await context.Database.MigrateAsync();
+    await Seeder.Seed(context);
+}
 
-
-app.UseHttpsRedirection();
 
 
 
